@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         { seconds: 115, callback: ginger },
         { seconds: 137, callback: chilli },
         { seconds: 168, callback: funcwrapup },
-        { seconds: 178, callback: quizlet }
+        { seconds: 178, callback: cinnaorigin }
     ];
 
     //this activates the cuepoints module.
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     //shortcut variables
     const vid = document.querySelector("#vid");
-    const selectList = document.querySelector("#video_select");
+    const selectVid = document.querySelector("#video_select");
     const selectTxt = document.querySelector("#text-track");
     const display = document.getElementById("transcript");
     const transcript_en = document.getElementById("transcript-en");
@@ -53,23 +53,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const volumebtn= document.querySelector('#volumebtn');
     const chanelbtn = document.querySelector('#chanelbtn');
     const transcriptbtn = document.querySelector('#transcriptbtn');
+
     //short cut variable  for button images
    const muteimg = document.querySelector(".img_unmute");
    const playimg = document.getElementById(".img_play");
    const pauseimg = document.querySelector(".img_pause");
     //short cut variables for function  changes
-    const web = document.querySelector("#web");
+    let web = document.querySelector("#web");
     let pop = document.querySelector(".pop");
     let title = document.querySelector(".title");
     let img = document.querySelector(".thumbnail");
-    //const info = document.querySelector("#info");
-    const col = document.querySelector(".col2");
+    let col = document.querySelector(".col2");
    
-
- 
- 
-    
-
 //to load the video and start volume at 50%.
 vid.src="assets/Spices.mp4";
 vid.load();
@@ -77,7 +72,7 @@ vid.volume = 0.5;
 
 
     // make the select list control what video format to play 
-    selectList.addEventListener("change", (e) => {
+    selectVid.addEventListener("change", (e) => {
         selectVideo(e, vid);
     });
     
@@ -119,17 +114,19 @@ showHide.addEventListener(
 
 //action added to buttons
 playbtn.addEventListener('click', (e) => {
-   let playimg = document.getElementById(".img_play");
-   let pauseimg = document.querySelector(".img_pause");
+    let playimg = document.querySelector(".img_play");
+    let pauseimg = document.querySelector(".img_pause");
+    let stopimg = document.querySelector(".img_stop");
    vid.play();
-   playimg.src = "images/btn_playred100.png";
-   pauseimg.src = "images/btn_pause100.png";
+     playimg.src = "images/btn_playred100.png";
+     pauseimg.src = "images/btn_pause100.png";
+     stopimg.src="images/btn_stop100.png";
 });
 
  
  pausebtn.addEventListener('click', (e) => {
-   let playimg = document.getElementById(".img_play");
-   let pauseimg = document.querySelector(".img_pause");
+    let playimg = document.querySelector(".img_play");
+    let pauseimg = document.querySelector(".img_pause");
     vid.pause();
       pauseimg.src="images/btn_pausered100.png";
       playimg.src="images/btn_playwt100.png";      
@@ -137,8 +134,7 @@ playbtn.addEventListener('click', (e) => {
  
     mutebtn.addEventListener('click', (e)=> {
         vidMute();
-        
-        
+            
       });
 
         
@@ -146,9 +142,13 @@ stopbtn.addEventListener('click', (e) => {
    
    vid.pause();
    vid.currentTime = 0;
+    let playimg = document.querySelector(".img_play");
+    let pauseimg = document.querySelector(".img_pause");
+    let stopimg = document.querySelector(".img_stop");
    playimg.src="images/btn_playwt100.png";
    pauseimg.src="images/btn_pause100.png";
-      
+   stopimg.src="images/btn_stopred100.png";
+         
 });
 
 //volumebtn.addEventListener('click', (e) => {
@@ -165,21 +165,28 @@ stopbtn.addEventListener('click', (e) => {
       
     
 //});
-/*ccbtn.addEventListener('click', (e) => {
+ccbtn.addEventListener('click', (e) => {
     closedCaption.style.visibility = "visible";
        
  });
- chanelbtn.addEventListener('click', (e) => {
-    video_select.style.visibility ="visible";
+
+ //chanelbtn.addEventListener('click', (e) => {
+   // video_select.style.visibility ="visible";
     
        
- });*/
+ //});
+
 
 //the custom callback functions to trigger when a cuepoint is hit.
 //You can code up whatever behavior you need in your own callbacks
 //feel free to rename the functions to be more descriptive of what they do.
 
-
+function selectVideo(e, clip) 
+	{
+		clip.src = e.target.value;
+		clip.load();
+		clip.play();
+	}
 
 function vidMute(){
     let muteimg = document.querySelector(".img_unmute");
@@ -199,6 +206,7 @@ function heading(){
     let pop =document.querySelector(".pop");
     let title = document.querySelector(".title");
     let img = document.querySelector(".thumbnail");
+
     pop.classList.remove("hide");
     img.src = "images/samplespices.jpg";
     title.innerHTML ="Common Spices and its Benefits";
@@ -210,6 +218,7 @@ function cinnamon() {
     let pop =document.querySelector(".pop");
     let title = document.querySelector(".title");
     let img = document.querySelector(".thumbnail");
+
     img.src = "images/cinnamon.jpg";
     title.innerHTML ="CINNAMOM";
     title.style.color = "white";
@@ -259,9 +268,9 @@ function rosemary() {
     let pop = document.querySelector(".pop");
     let title = document.querySelector(".title");
     let img = document.querySelector(".thumbnail");
-    let col2 = document.querySelector(".col2");
+    let col = document.querySelector(".col2");
 
-    col2.classList.remove("size");
+    col.classList.remove("size");
     web.classList.remove("size");
     web.src="images/turmeric.png";
     title.innerHTML ="ROSEMARY";
@@ -324,32 +333,38 @@ function funcwrapup() {
     let img = document.querySelector(".thumbnail");
     let col = document.querySelector(".col2");
 
-    col.classList.add("size");
+    col.style.width = "100%";
+    col.style.height = "fit-content";
     web.classList.add("size");
     pop.classList.remove("hide");
     web.src = "images/differentspices.jpg";
     img.src="images/samplespices.jpg";
     title.innerHTML ="Eat Healthy and Stay Healthy";
     title.style.color = "black";
-    
-
+ 
 }
+
 function cinnaorigin() {
     let web = document.querySelector("#web");
     let pop = document.querySelector(".pop");
     let title = document.querySelector(".title");
     let img = document.querySelector(".thumbnail");
-    
- web.src="https://www.tastesoflizzyt.com/wprm_print/recipe/18003";
+    let col = document.querySelector(".col2");
+
+    img.src="images/cinnamon.jpg";
+    title.innerHTML = "Story of Cinnamon?";
+    col.style.width = "100%";
+    col.style.height = "fit-content";
+    web.src="assets/Cinnamonstory.mp4";
+    vid.src="images/videoposter.png";
 }
 
-function quizlet() {
+/*function  cinnaorigin() {
     pop.classList.remove("hide");
-    col2.classList.add("size");
+    col.classList.add("size");
     web.classList.add("size");
     web.src = "images/differentspices.jpg";
     img.src="images/samplespices.jpg";
     title.innerHTML ="Eat Healthy and Stay Healthy";
     title.style.color = "black";
-     
-}
+//}*/
