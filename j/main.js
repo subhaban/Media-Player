@@ -16,7 +16,7 @@ import { cueTimer } from "./modules/cuepoints.js";
 document.addEventListener("DOMContentLoaded", (e) => {
 
     var myCues = [
-        
+
         { seconds: 5, callback: heading },
         { seconds: 18, callback: cinnamon },
         { seconds: 22, callback: cinnafacts },
@@ -166,8 +166,10 @@ stopbtn.addEventListener('click', (e) => {
     
 //});
 ccbtn.addEventListener('click', (e) => {
-    closedCaption.style.visibility = "visible";
-       
+    let selection = document.querySelector(".selection");
+    selection.style.visibility ="visible";
+    setTimeout()
+   
  });
 
  //chanelbtn.addEventListener('click', (e) => {
