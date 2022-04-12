@@ -335,7 +335,7 @@ function funcwrapup() {
 
     col.style.width = "100%";
     col.style.height = "fit-content";
-    web.classList.add("size");
+   
     pop.classList.remove("hide");
     web.src = "images/differentspices.jpg";
     img.src="images/samplespices.jpg";
