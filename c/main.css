@@ -54,7 +54,6 @@ h1 {
   border:1px solid red;
   border-radius: 10px;
   height:32px;
- 
 }
 
 .controls_btn {
@@ -105,6 +104,7 @@ h1 {
   padding:0;
 }
 
+/* div containing select options for video selection  */
 .selection{
   display:flex;
   flex-direction:column;
@@ -119,6 +119,7 @@ h1 {
   visibility:hidden;
  
 }
+/* div containing subtiles selection foption  */
 .subtitles{
   position:absolute;
   display:table-row;
@@ -130,10 +131,9 @@ h1 {
   visibility:hidden;
 
 }
-a{
-  color:rgb(50, 16, 223);
-  text-decoration: none;
-}
+
+
+/* trascript container span*/
 .trans_container{
   position:absolute;
   top:-53px;
@@ -144,6 +144,11 @@ a{
   width:30px;
   text-align:center;
   cursor:pointer;
+}
+/* anchors for transcript */
+a{
+  color:rgb(50, 16, 223);
+  text-decoration: none;
 }
 
 .pop { 
@@ -165,37 +170,35 @@ a{
 }
 
 .video_select{
+  background-color: #9f9617;
   position:absolute;
   width: 50px;
   height:100px;
   margin-top:0;
   margin-left:500px;
-  visibility:hidden;
+  
   
 }
 .closed_caption{
   position:absolute;
   margin-left:50px;
-  
-  
-  
+
 }
-.show_captions{
+
+.showtranscript{
   position:absolute;
   background-color: bisque;
-  border:1px solid black;
-  margin-left:50px;
-  margin-top:-50px;
- visibility:hidden;
+  border:3px solid rgb(3, 64, 246);
+  margin-left:350px;
+  margin-top:-110px;
+  display:none;
   
-}*/
+}
 
 .show{
   visibility:hidden;
-  transition:all 3s;
+  
 }
-
-
 
 .hide {
   opacity:0;

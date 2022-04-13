@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const volumebtn= document.querySelector('#volumebtn');
     const volumeslider = document.querySelector('#volumeslider');
     const chanelbtn = document.querySelector('#chanelbtn');
-    const transcriptbtn = document.querySelector('#transcriptbtn');
+    const transcontainer = document.querySelector(".trans_container");
 
     //short cut variable  for button images
     const muteimg = document.querySelector(".img_unmute");
@@ -173,19 +173,24 @@ volumeslider.addEventListener('click', (e) => {
 //});
 
  //for closed caption button
- chanelbtn.addEventListener('click', (e) => {
-    let selection = document.querySelector(".selection");
-    selection.style.visibility ="visible";
-    setTimeout(() => {show()}, 3000);
+ ccbtn.addEventListener('click', (e) => {
+    let subtitles = document.querySelector(".subtitles");
+    subtitles.style.visibility ="visible";
+    
 
  });
 
 //for select video button
-   //chanelbtn.addEventListener('click', (e) => {
-   // video_select.style.visibility ="visible";
-   
- //});
-
+   chanelbtn.addEventListener('click', (e) => {
+    let selection = document.querySelector(".selection");
+    selection.style.visibility ="visible";
+    
+ });
+''
+transcontainer.addEventListener('click', (e) => {
+    let showtranscript = document.querySelector(".showtranscript");
+     showtranscript.style.visibility = "visible";
+ });
 
 //the custom callback functions to trigger when a cuepoint is hit.
 //You can code up whatever behavior you need in your own callbacks
