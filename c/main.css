@@ -124,9 +124,9 @@ h1 {
   display:table-row;
   margin-left:300px;
   margin-top:-75px;
-  color:rgb(255, 255, 255);
-  background-color: rgb(239, 236, 195);
-  border:3px solid green;
+  color:rgb(50, 16, 223);
+  background-color: #efecc3;
+  border:3px solid rgb(2, 78, 2);
   visibility:hidden;
 
 }
@@ -134,6 +134,18 @@ a{
   color:rgb(50, 16, 223);
   text-decoration: none;
 }
+.trans_container{
+  position:absolute;
+  top:-53px;
+  right:-20px;;
+  background-color:#000000;
+  border:1px solid rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
+  width:30px;
+  text-align:center;
+  cursor:pointer;
+}
+
 .pop { 
 	position:absolute;
 	top:10px;
@@ -180,6 +192,7 @@ a{
 
 .show{
   visibility:hidden;
+  transition:all 3s;
 }
 
 

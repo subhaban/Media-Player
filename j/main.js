@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const transcriptbtn = document.querySelector('#transcriptbtn');
 
     //short cut variable  for button images
-  // const muteimg = document.querySelector(".img_unmute");
-   //const playimg = document.getElementById(".img_play");
-   //const pauseimg = document.querySelector(".img_pause");
-    //short cut variables for function  changes
+    const muteimg = document.querySelector(".img_unmute");
+    const playimg = document.getElementById(".img_play");
+    const pauseimg = document.querySelector(".img_pause");
+//short cut variables for function  changes
     let web = document.querySelector("#web");
     let pop = document.querySelector(".pop");
     let title = document.querySelector(".title");
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 //to load the video and start volume at 50%.
 vid.src="assets/Spices.mp4";
 vid.load();
-vid.volume = .5;
+//vid.volume = .5;
 
 
     // make the select list control what video format to play 
@@ -113,8 +113,8 @@ showHide.addEventListener(
             display.style.display = "none";
         }
     });
-});
 
+});
 //action added to buttons
 //for play button
 playbtn.addEventListener('click', (e) => {
@@ -161,6 +161,9 @@ stopbtn.addEventListener('click', (e) => {
     setVolume();  
 });
 
+volumeslider.addEventListener('click', (e) => {
+    setVolume();
+});
 ///seekinfobtn.addEventListener('click', (e) => {
    //funcwrapup();
    // playimg.src="images/btn_playwt100.png";
@@ -170,7 +173,7 @@ stopbtn.addEventListener('click', (e) => {
 //});
 
  //for closed caption button
-ccbtn.addEventListener('click', (e) => {
+ chanelbtn.addEventListener('click', (e) => {
     let selection = document.querySelector(".selection");
     selection.style.visibility ="visible";
     setTimeout(() => {show()}, 3000);
@@ -220,16 +223,22 @@ function vidMute(){
     if(vid.muted){
         vid.muted = false;  
         muteimg.src = "images/btn_unmute100.png";
+         volumeslider.value = "100";
         
     } else {
         vid.muted = true;
         muteimg.src = "images/btn_mutered100.png";
+        volumeslider.value = "0";
        
     }
 }
 
 function setVolume(){
      vid.volume = volumeslider.value / 100;
+      if (vid.volume = 100){
+        muteimg.src = "images/btn_unmute100.png";
+
+      }
 }
  
 function show(){
