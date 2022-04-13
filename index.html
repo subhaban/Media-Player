@@ -19,7 +19,7 @@
 
 		<section class="col1">
 
-			<video id="vid" width="" poster="./images/videoposter.png" controls>
+			<video id="vid" width="" poster="./images/videoposter.png">
 
 
 				<source src="assets/Spices.mp4" id="spices" type="video/mp4">
@@ -28,7 +28,9 @@
 				<track id="en" kind="captions" label="English (Captions)" srclang="en" src="./captions/spices.vtt"
 					default>
 				<track id="es" kind="subtitles" label="Espanol(Subtitles)" srclang="es" src="subtitles/spanish.vtt">
-<p>Your broweser does not support video.<a href="https://studio.youtube.com/video/_hKvxx5EpRk/edit">Click Here</a> to the watch the video</p>
+				<p>Your broweser does not support video.<a
+						href="https://studio.youtube.com/video/_hKvxx5EpRk/edit">Click Here</a> to the watch the video
+				</p>
 				<!-- final fallback to text -->
 				<h2>Spices and its benefits</h2>
 				<p>spices they're good for the soul but they're also good for our bodies
@@ -50,31 +52,47 @@
 					reducing the amount of carcinogenic compounds you ingest from cooking groundnbeef it's also known to
 					have significant antibacterial properties as well as antifungal properties which makes it a good
 					home remedy for yeast infections.
-					Thyme may actually be the way to go many studies have touted thyme oil as an effective inhibitor of harmful bacterial growth and raw poultry so if you were to marinate chicken in essential thyme oil you could greatly extend its shelf life it's even being considered as a possible alternative treatment for antibiotic resistant infections like mrsa that plus its anti-inflammatory properties make thyme one of the best home remedies for acne ginger is also one of the most effective natural ones out there it contains two key phytochemicals known to fight inflammation which is why you typically see it used used in teas for people with congestion or sore throat it's also great for arthritis and research published in the journal of pain shows that daily supplements containing 2 grams of ginger can actually ease muscle pain from exercising by 25 chili peppers are great analgesics the active component in them is called capsaicin and it's been shown over time to reduce certain pain-causing neurotransmitters it's currently used in topical form for all kinds of health problems ranging from post-surgical pain to arthritis even things like psoriasis and if that is not enough it's also known to cause weight loss a 2009 study found that capsaicin can actually alter key proteins found in fat making it a natural and viable method for reducing abdominal fat of course these are just a small handful of spices that are good for your health but there's actually way more oregano garlic nutmeg and a bunch of others all have their own unique health benefits so eat up maybe you can stave off cancer.
+					Thyme may actually be the way to go many studies have touted thyme oil as an effective inhibitor of
+					harmful bacterial growth and raw poultry so if you were to marinate chicken in essential thyme oil
+					you could greatly extend its shelf life it's even being considered as a possible alternative
+					treatment for antibiotic resistant infections like mrsa that plus its anti-inflammatory properties
+					make thyme one of the best home remedies for acne ginger is also one of the most effective natural
+					ones out there it contains two key phytochemicals known to fight inflammation which is why you
+					typically see it used used in teas for people with congestion or sore throat it's also great for
+					arthritis and research published in the journal of pain shows that daily supplements containing 2
+					grams of ginger can actually ease muscle pain from exercising by 25 chili peppers are great
+					analgesics the active component in them is called capsaicin and it's been shown over time to reduce
+					certain pain-causing neurotransmitters it's currently used in topical form for all kinds of health
+					problems ranging from post-surgical pain to arthritis even things like psoriasis and if that is not
+					enough it's also known to cause weight loss a 2009 study found that capsaicin can actually alter key
+					proteins found in fat making it a natural and viable method for reducing abdominal fat of course
+					these are just a small handful of spices that are good for your health but there's actually way more
+					oregano garlic nutmeg and a bunch of others all have their own unique health benefits so eat up
+					maybe you can stave off cancer.
 				</p>
-				
+
 			</video>
 
 			<div class="controls">
 				<div class="controls_btn">
-					
-					<button type="image" id="playbtn" class="btn"><img src="images/btn_playwt100.png"
-							class="img_play" class="img_btn "></button>
+					<button type="image" id="playbtn" class="btn"><img src="images/btn_playwt100.png" class="img_play"
+							class="img_btn "></button>
 					<button type="image" id="pausebtn" class="btn"><img src="images/btn_pause100.png"
 							class="img_btn img_pause"></button>
 					<button type="image" id="mutebtn" class="btn"><img src="images/btn_unmute100.png"
 							class="img_unmute img_btn"></button>
 					<button type="image" id="stopbtn" class="btn"><img src="images/btn_stop100.png"
 							class="img_btn img_stop"></button>
-					<button type="image" id="volumebtn" class="btn"><img src="images/btn_volume-01.png"
-							class="img_btn"></button>
+					<button type="image" id="volumebtn" class="btn"><img src="images/btn_volume.png"
+							class="img_btn volumebtn"></button>
+					<input type="range" id="volumeslider" class="volume" min="0" max="100" value="100">
 					<button type="image" id="ccbtn" class="btn"><img src="images/btn_cc_100.png"
-							class="img_btn"></button>
-					<button type="image" id="chanelbtn" class="btn"><img src="images/btn_cc_100.png"
-							class="img_btn"></button>
-					<button type="image" id="transcriptbtn" class="btn"><img src="images/btn_cc_100.png"
-							class="img_btn"></button>
+						class="img_btn ccbtn"></button>
 
+					<button type="image" id="chanelbtn" class="btn"><img src="images/youtube.png"
+							class="img_btn chbtn" class="btn"></button>
+
+					
 
 					<!--<button type="image" id="seekinfobtn" class="btn"><img src="images/btn_playred100.png"></button>-->
 
@@ -82,34 +100,37 @@
 				</div>
 				<div class="selection">
 
-					<select id="video_select show-hide  ">
+					<select id="video_select show-hide">
 						<option>Select a video </option>
 						<option value="assets/Spices.mp4">Spices and Health(mp4)</option>
 						<option value="assets/Spices.webm">Spices and health(webm)</option>
 						<option value="assets/Cinnamonstory.mp4">Origin Of Cinnamon</option>
 
 					</select>
-				
-				
+
+				</div>
+				<div class="subtitles">
+
+
 					<select id="text-track" class="transcript_lan show-hide">
 						<option>Select subtitle language </option>
 						<option value="en">English</opttion>
-						<option value="fr">Spanish</option>
+						<option value="es">Spanish</option>
 
 					</select>
 
-					<select id="show-hide" class="transcript_lan show-hide">
+					<!--<select id="show-hide" class="transcript_lan show-hide">
 						<option>Show Transcript</option>
 						<option value="en">English</opttion>
-						<option value="fr">Spanish</option>
+						<option value="es">Spanish</option>
 						<div id="transcript"></div>
-					</select>
-				
-					<!--<h3><a id="show-hide" href="#">Show Transcript</a></h3>
-					<a id="transcript-en" href="#">English</a>
-					<a id="transcript-fr" href="#">French</a>
-					<div id="transcript"></div>-->
-				
+					</select>-->
+
+					<h3><a id="show-hide" href="#">Show Transcript</a></h3>
+					<a id="transcript-en" href="captions/spices.vtt">English</a>
+					<a id="transcript-es" href="subtitles/spanish.vtt">Spanish</a>
+					<div id="transcript"></div>
+
 				</div>
 
 			</div>

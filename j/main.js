@@ -42,33 +42,36 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const transcript_en = document.getElementById("transcript-en");
     const transcript_es = document.getElementById("transcript-es");
     const showHide = document.getElementById("show-hide");
-   // const closedCaption = document.querySelector(".closed_caption");
-    
-    // short cut variables for buttons
+
+    // short cut variables for controls
+    const curtimeTxt = document.querySelector("#curtimetxt");
+    const durtimeTxt = document.querySelector("#durtimetxt");
     const playbtn = document.querySelector('#playbtn');
     const pausebtn = document.querySelector('#pausebtn');
     const mutebtn = document.querySelector('#mutebtn');
     const ccbtn = document.querySelector('#ccbtn');
     const stopbtn = document.querySelector('#stopbtn');
     const volumebtn= document.querySelector('#volumebtn');
+    const volumeslider = document.querySelector('#volumeslider');
     const chanelbtn = document.querySelector('#chanelbtn');
     const transcriptbtn = document.querySelector('#transcriptbtn');
 
     //short cut variable  for button images
-   const muteimg = document.querySelector(".img_unmute");
-   const playimg = document.getElementById(".img_play");
-   const pauseimg = document.querySelector(".img_pause");
+  // const muteimg = document.querySelector(".img_unmute");
+   //const playimg = document.getElementById(".img_play");
+   //const pauseimg = document.querySelector(".img_pause");
     //short cut variables for function  changes
     let web = document.querySelector("#web");
     let pop = document.querySelector(".pop");
     let title = document.querySelector(".title");
     let img = document.querySelector(".thumbnail");
     let col = document.querySelector(".col2");
+
    
 //to load the video and start volume at 50%.
 vid.src="assets/Spices.mp4";
 vid.load();
-vid.volume = 0.5;
+vid.volume = .5;
 
 
     // make the select list control what video format to play 
@@ -113,31 +116,33 @@ showHide.addEventListener(
 });
 
 //action added to buttons
+//for play button
 playbtn.addEventListener('click', (e) => {
-    let playimg = document.querySelector(".img_play");
-    let pauseimg = document.querySelector(".img_pause");
-    let stopimg = document.querySelector(".img_stop");
-   vid.play();
+    vid.play();
+     let playimg = document.querySelector(".img_play");
+     let pauseimg = document.querySelector(".img_pause");
+     let stopimg = document.querySelector(".img_stop"); 
      playimg.src = "images/btn_playred100.png";
      pauseimg.src = "images/btn_pause100.png";
      stopimg.src="images/btn_stop100.png";
+
 });
 
- 
+ //for pause button
  pausebtn.addEventListener('click', (e) => {
-    let playimg = document.querySelector(".img_play");
-    let pauseimg = document.querySelector(".img_pause");
     vid.pause();
+     let playimg = document.querySelector(".img_play");
+     let pauseimg = document.querySelector(".img_pause");
       pauseimg.src="images/btn_pausered100.png";
       playimg.src="images/btn_playwt100.png";      
  });
- 
-    mutebtn.addEventListener('click', (e)=> {
-        vidMute();
-            
-      });
 
-        
+//formute button
+ mutebtn.addEventListener('click', (e)=> {
+        vidMute();
+     });
+
+//for stop button       
 stopbtn.addEventListener('click', (e) => {
    
    vid.pause();
@@ -150,13 +155,11 @@ stopbtn.addEventListener('click', (e) => {
    stopimg.src="images/btn_stopred100.png";
          
 });
-
-//volumebtn.addEventListener('click', (e) => {
-   // vid.currentTime = 0;
-   // playimg.src="images/btn_playwt100.png";
-   // pauseimg.src="images/btn_pause100.png";
-      
-//});
+ //for volume button
+ volumebtn.addEventListener('click', (e) => {
+    volumeslider.style.visibility ="visible";
+    setVolume();  
+});
 
 ///seekinfobtn.addEventListener('click', (e) => {
    //funcwrapup();
@@ -165,17 +168,19 @@ stopbtn.addEventListener('click', (e) => {
       
     
 //});
+
+ //for closed caption button
 ccbtn.addEventListener('click', (e) => {
     let selection = document.querySelector(".selection");
     selection.style.visibility ="visible";
-    setTimeout()
-   
+    setTimeout(() => {show()}, 3000);
+
  });
 
- //chanelbtn.addEventListener('click', (e) => {
+//for select video button
+   //chanelbtn.addEventListener('click', (e) => {
    // video_select.style.visibility ="visible";
-    
-       
+   
  //});
 
 
@@ -190,6 +195,26 @@ function selectVideo(e, clip)
 		clip.play();
 	}
 
+    
+        function selectTrack(e, clip, id){
+       
+            if(clip.textTracks.length > 0) {
+                
+                //set all tracks inactive
+                for (let track of clip.textTracks) {
+                    track.mode = 'hidden';
+                    track.selected = false;
+                }
+    
+                //turn on the selected track 
+                const theTrack = clip.textTracks.getTrackById(id);
+                console.log(theTrack);
+                theTrack.selected = true;
+                theTrack.mode = 'showing';
+            }
+        }
+    
+
 function vidMute(){
     let muteimg = document.querySelector(".img_unmute");
     if(vid.muted){
@@ -198,11 +223,18 @@ function vidMute(){
         
     } else {
         vid.muted = true;
-        muteimg.src = "images/btn_mute100.png";
+        muteimg.src = "images/btn_mutered100.png";
        
     }
 }
 
+function setVolume(){
+     vid.volume = volumeslider.value / 100;
+}
+ 
+function show(){
+    visibility= hidden;
+}
 
 function heading(){
     let pop =document.querySelector(".pop");
