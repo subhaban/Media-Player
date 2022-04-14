@@ -112,7 +112,7 @@ h1 {
   margin-top:-80px;
   background: rgb(146, 170, 178);
   color:rgb(38, 38, 233);
-  border: 2px solid #f50404;
+ 
   height:75px;
   
  
@@ -122,9 +122,11 @@ h1 {
   position:absolute; 
   margin-left:300px;
   margin-top:-75px;
-  color:rgb(50, 16, 223);
-  background-color: #efecc3;
+  color:rgb(189, 218, 234);
+  
   border:3px solid rgb(2, 78, 2);
+  background-color: rgb(37, 85, 130);
+  border:3px solid rgb(99, 102, 104);
   display:none;
 
 }
@@ -167,7 +169,8 @@ a{
 }
 
 #video-select{
-  background-color: #e35a0a;
+  background-color: rgb(37, 85, 130);
+  border:3px solid rgb(99, 102, 104);
   position:relative;
   width: 50px;
   height:100px;
@@ -181,14 +184,21 @@ a{
   margin-left:50px;
 
 }*/
+#ttcaption{
+font-size: large;
+font-family:monospace;
+border:2px solid rgb(63, 69, 71);
+border-radius: 5px;
+margin-top:-2px;
+}
 
 .show-transcript{ 
   background-color: rgb(37, 85, 130);
-  border:3px solid rgb(137, 139, 141);
+  border:3px solid rgb(99, 102, 104);
   margin-top:-150px;
   width:120px;;
   margin-left:365px;
-  visibility:hidden;
+  display:none;
 }
 
 .show{

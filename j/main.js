@@ -105,6 +105,8 @@ selectVid.addEventListener("change", (e) => {
         const stopbtn = document.querySelector('#stopbtn');
         const volumebtn= document.querySelector('#volumebtn');
         const volumeslider = document.querySelector('#volumeslider');
+        const ttbtn = document.querySelector('#ttcaption ');
+        const showHide = document.getElementById("show-hide");
 
  // short cut variables for controls buttom images
         const playimg = document.querySelector(".img_play");
@@ -180,34 +182,56 @@ function vidMute(){
         const subtitles = document.querySelector(".subtitles");
         const selectTxt = document.querySelector("#text-track");
         subtitles.style.display = "block";
+        
         selectTxt.addEventListener("change", (e) => {
             const id =  e.target.value;
             selectTrack(e, vid, id); 
     }); 
     setTimeout(() => {
-        document.querySelector(".subtitles").style.display="none";},5000);
+        document.querySelector(".subtitles").style.display="none";},3000);
  });
 
 
 //for select video button
  ytbtn.addEventListener('click', (e) => {
-    const selectVid = document.querySelector("#video_select");
+   //const selectVid = document.querySelector("#video_select");
    const selection = document.querySelector(".selection"); 
      selection.style.display ="block"; 
-     selectVid.addEventListener("change", (e) => {
-                selectVideo(e,clip);
+     selection.addEventListener("change", (e) => {
+                selectVideo(e,vid);
+                //selectTrack(e, vid, id); 
                 setTimeout(() => {
-                    document.querySelector(".selection").style.display="none";},5000);
+                    document.querySelector(".selection").style.display="none";},3000);
      });
         
     }); 
 
 //for show transcript
-transcontainer.addEventListener('click', (e) => {
-    let showtranscript = document.querySelector(".showtranscript");
-     showtranscript.style.visibility = "visible";
+     ttbtn.addEventListener('click', (e) => {
+        const showtrans = document.querySelector(".show-transcript");
+     //showtrans.addEventListener('click', (e) =>{
+        showtrans.style.display = "block";
+       
+        showHide.addEventListener(
+            "click",
+               function (e) {
+                    e.preventDefault();
+                   webvttTranscript("subtitles/spanish.vtt", display);
+               if (e.target.innerHTML == "Show Transcript") {
+                   e.target.innerHTML = "Hide Transcript";
+                   display.style.display = "block";
+               } else {
+                   e.target.innerHTML = "Show Transcript";
+                   display.style.display = "none";
+               }
+           });
+        
+           setTimeout(() => {
+            document.querySelector(".showtrans").style.display="none";},3000);
+     });
+     
+    
 
- });
 
  //Functions
 //the custom callback functions to trigger when a cuepoint is hit.

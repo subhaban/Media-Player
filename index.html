@@ -22,9 +22,10 @@
 				<source src="assets/Spices.mp4" id="spices" type="video/mp4">
 				<source src="assets/Spices.webm" id="spicesweb" type="video/webm">
 				<source src="assets/Cinnamonstory.mp4" id="cinamon" type="video/mp4">
-				<track id="en" kind="captions" label="English (Captions)" srclang="en" src="./captions/spices.vtt"
+				<track id="en" kind="captions" label="English (Captions)" srclang="en" src="captions/spices.vtt"
 					default>
 				<track id="es" kind="subtitles" label="Espanol(Subtitles)" srclang="es" src="subtitles/spanish.vtt">
+				<track id="eng" kind="captions" label="English(captions)" srclang="en" src="captions/cinnamon.vtt">
 				<p>Your broweser does not support video.<a
 						href="https://studio.youtube.com/video/_hKvxx5EpRk/edit">Click Here</a> to the watch the video
 				</p>
@@ -87,7 +88,8 @@
 							class="img_btn ccbtn"></button>
 					<button type="image" id="ytbtn" class="btn"><img src="images/youtube.png" class="img_btn ytbtn"
 							class="btn"></button>
-					<span class="trans_container">TT</span>
+					
+					<span id="ttcaption" class="trans_container">TT </span>
 
 				</div>
 
@@ -101,8 +103,9 @@
 				</div>
 
 				<div class="subtitles">
-					<select id="text-track" class="transcript_lan show-hide">
-						<option>Select subtitle </option>
+					<select id="text-track" class="transcript_lan show-hide ">
+						<option >Select subtitle </option>
+						<option value="off">Off</option>
 						<option value="en">English</opttion>
 						<option value="es">Spanish</option>
 					</select>
