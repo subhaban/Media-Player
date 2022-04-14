@@ -17,7 +17,7 @@
 
 	<main id="container">
 		<section class="col1">
-			<video id="vid" width="" poster="./images/videoposter.png">
+			<video id="vid" width="" poster="./images/videoposter.png" controls>
 
 				<source src="assets/Spices.mp4" id="spices" type="video/mp4">
 				<source src="assets/Spices.webm" id="spicesweb" type="video/webm">
@@ -85,25 +85,22 @@
 					<input type="range" id="volumeslider" class="volume" min="0" max="100" value="100" step="1">
 					<button type="image" id="ccbtn" class="btn"><img src="images/btn_cc_100.png"
 							class="img_btn ccbtn"></button>
-					<button type="image" id="chanelbtn" class="btn"><img src="images/youtube.png" class="img_btn chbtn"
+					<button type="image" id="ytbtn" class="btn"><img src="images/youtube.png" class="img_btn ytbtn"
 							class="btn"></button>
-					<span class="trans_container">Tt</span>
+					<span class="trans_container">TT</span>
 
-
-					<!--<button type="image" id="seekinfobtn" class="btn"><img src="images/btn_playred100.png"></button>-->
 				</div>
 
 				<div class="selection">
-					<select id="video_select show-hide">
+					<select id="video-select show-hide">
 						<option>Select a video </option>
-						<option value="assets/Spices.mp4">Spices and Health(mp4)</option>
+						<option value="assets/Spices.mp4" default >Spices and Health(mp4)</option>
 						<option value="assets/Spices.webm">Spices and health(webm)</option>
 						<option value="assets/Cinnamonstory.mp4">Origin Of Cinnamon</option>
 					</select>
 				</div>
 
 				<div class="subtitles">
-
 					<select id="text-track" class="transcript_lan show-hide">
 						<option>Select subtitle </option>
 						<option value="en">English</opttion>
@@ -111,21 +108,20 @@
 					</select>
 				</div>
 
-				<div class="showtranscript">
+				<div class="show-transcript">
+					<h3><a id="show-hide" href="#">Show Transcript</a></h3>
+					<a id="transcript-en" href="captions/spices.vtt">English</a>
+					<a id="transcript-es" href="subtitles/spanish.vtt">Spanish</a>
+					<div id="transcript"></div>
 					
-				  <h3><a id="show-hide" href="#">Show Transcript</a></h3>
-				  <a id="transcript-en" href="captions/spices.vtt">English</a>
-				  <a id="transcript-es" href="subtitles/spanish.vtt">Spanish</a>
-				  <div id="transcript"></div>
-				 <!--<select id="show-hide" class="transcript_lan show-hide">
-						<option>Show Transcript</option>
-						<option value="en">English</opttion>
-						<option value="es">Spanish</option>
-						<div id="transcript"></div>
-					</select>-->
 				</div>
 
-
+				<!--<select id="show-hide" class="transcript_lan show-hide">
+					<option><a id="show-hide" href="#">Show Transcript</a></option>
+					<option value="en">English</opttion>
+					<option value="es">Spanish</option>
+					<div id="transcript"></div>
+				</select>-->
 			</div>
 
 			<div class="pop hide">
