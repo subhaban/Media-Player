@@ -227,18 +227,18 @@ margin-top:-2px;
 .col2 {
  
   background-color: rgb(8, 9, 9);
-	height:75vh;
+	height:80vh;
   border:7px solid rgb(97, 97, 95);
 }
 
 .size{
-  height:47vh;
-  width:44vw;
+  height:52vh;
+  width:32vw;
 }
 
 iframe {
 	width:100%;
-	height:72vh;
+	height:75vh;
   border:none;
 }
 

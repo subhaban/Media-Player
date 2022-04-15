@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     var myCues = [
 
         { seconds: 5, callback: heading },
+        { seconds: 6, callback: introposter },
         { seconds: 18, callback: cinnamon },
         { seconds: 20, callback: cinnafacts },
         { seconds: 49, callback: turmeric },
@@ -95,8 +96,8 @@ selectVid.addEventListener("change", (e) => {
 
  // short cut variables for controls
         const vid = document.querySelector("#vid");
-        const curtimeTxt = document.querySelector("#curtimetxt");
-        const durtimeTxt = document.querySelector("#durtimetxt");
+        //const curtimeTxt = document.querySelector("#curtimetxt");
+       // const durtimeTxt = document.querySelector("#durtimetxt");
         const playbtn = document.querySelector('#playbtn');
         const pausebtn = document.querySelector('#pausebtn');
         const mutebtn = document.querySelector('#mutebtn');
@@ -152,34 +153,23 @@ selectVid.addEventListener("change", (e) => {
         stopimg.src="images/btn_stopred100.png";
          
     });
+
  //for volume button
     volumebtn.addEventListener('click', (e) => {
         volumeslider.style.visibility ="visible";
         setVolume();  
     });
 
+//for volume button
 volumeslider.addEventListener('click', (e) => {
     setVolume();
-});
+    
+});  
 
-//function for Mute Button
-function vidMute(){
-    let muteimg = document.querySelector(".img_unmute");
-    if(vid.muted){
-        vid.muted = false;  
-        muteimg.src = "images/btn_unmute100.png";
-         volumeslider.value = "100";
-        
-    } else {
-        vid.muted = true;
-        muteimg.src = "images/btn_mutered100.png";
-        volumeslider.value = "0";
-       
-    }
-}
+
  //for closed caption button
     ccbtn.addEventListener('click', (e) => {  
-        const subtitles = document.querySelector(".subtitles");
+       const subtitles = document.querySelector(".subtitles");
         const selectTxt = document.querySelector("#text-track");
         subtitles.style.display = "block";
         
@@ -192,21 +182,21 @@ function vidMute(){
  });
 
 
-//for select video button
+//for select video button ytbutton
  ytbtn.addEventListener('click', (e) => {
    //const selectVid = document.querySelector("#video_select");
    const selection = document.querySelector(".selection"); 
      selection.style.display ="block"; 
      selection.addEventListener("change", (e) => {
                 selectVideo(e,vid);
-                //selectTrack(e, vid, id); 
+                selectTrack(e, vid, id); 
                 setTimeout(() => {
                     document.querySelector(".selection").style.display="none";},3000);
      });
         
     }); 
 
-//for show transcript
+//for show transcript TT button
      ttbtn.addEventListener('click', (e) => {
         const showtrans = document.querySelector(".show-transcript");
      //showtrans.addEventListener('click', (e) =>{
@@ -238,6 +228,8 @@ function vidMute(){
 //You can code up whatever behavior you need in your own callbacks
 //feel free to rename the functions to be more descriptive of what they do.
 
+
+////////////////Functions for control panel/////////////////////////////////////
 //function for select video from video helpers.js
 function selectVideo(e, clip) 
 	{
@@ -270,37 +262,39 @@ function selectVideo(e, clip)
 ////function for Volume control
 function setVolume(){
      vid.volume = volumeslider.value / 100;
-      if (vid.volume = 100){
+}
+
+//function for Mute Button
+function vidMute(){
+    let muteimg = document.querySelector(".img_unmute");
+    if(vid.muted){
+        vid.muted = false;  
         muteimg.src = "images/btn_unmute100.png";
-
-      }
+         volumeslider.value = "100";
+        
+    } else {
+        vid.muted = true;
+        muteimg.src = "images/btn_mutered100.png";
+        volumeslider.value = "0";
+       
+    }
 }
- 
-//function for select video
 
-function show(){
-    visibility= hidden;
-}
-
-
+//////////////////////////////////////////////////////
 //function for callbacks
 function heading(){
-   /* let pop =document.querySelector(".pop");
-    let title = document.querySelector(".title");
-    let img = document.querySelector(".thumbnail");*/
-
     pop.classList.remove("hide");
     img.src = "images/samplespices.jpg";
     title.innerHTML ="Common Spices and its Benefits";
     title.style.color = "black";
 
 }
+function introposter(){
+    col2.style.height="fit-content";
+    web.src="images/spicesposter.png";
+}
 
 function cinnamon() {
-    /*let pop =document.querySelector(".pop");
-    let title = document.querySelector(".title");
-    let img = document.querySelector(".thumbnail");*/
-
     img.src = "images/cinnamon.jpg";
     title.innerHTML ="CINNAMOM";
     title.style.color = "white";
@@ -310,9 +304,7 @@ function cinnamon() {
 
 
 function cinnafacts() {
- 
-   //let web = document.querySelector("#web");
-  
+
    web.src="https://www.tastesoflizzyt.com/wprm_print/recipe/18003";
 }
 
@@ -329,29 +321,17 @@ function cinnafacts() {
 }*/
 
 function turmeric() {
-   
-    /*let web = document.querySelector("#web");
-    let pop = document.querySelector(".pop");
-    let title = document.querySelector(".title");
-    let img = document.querySelector(".thumbnail");
-    let col2 = document.querySelector(".col2");*/
 
     img.src = "images/turmeric2.jpg";
     title.innerHTML ="TURMERIC";
     col2.classList.add("size");
-    web.classList.add("size");
-    web.src="images/turmeric.png";
+   web.classList.add("size");
+    web.src="images/turmeric_benefits_resize.png";
     pop.classList.remove("hide");
 }
 
 
 function rosemary() {
-   /* let web = document.querySelector("#web");
-    let pop = document.querySelector(".pop");
-    let title = document.querySelector(".title");
-    let img = document.querySelector(".thumbnail");*/
-    //let col2 = document.querySelector(".col2");
-
     col2.classList.remove("size");
     web.classList.remove("size");
     web.src="images/turmeric.png";
@@ -362,12 +342,6 @@ function rosemary() {
 }
 
 function thymme() {
-   /* let web = document.querySelector("#web");
-    let pop = document.querySelector(".pop");
-    let title = document.querySelector(".title");
-    let img = document.querySelector(".thumbnail");
-    let col = document.querySelector(".col2");*/
-
     title.innerHTML ="THYMME";
     col2.classList.remove('size');
     web.classList.remove("size");
@@ -379,11 +353,6 @@ function thymme() {
 }
 
 function ginger() {
-   /* let web = document.querySelector("#web");
-    let pop = document.querySelector(".pop");
-    let title = document.querySelector(".title");
-    let img = document.querySelector(".thumbnail");
-    let col2 = document.querySelector(".col2");*/
 
     col2.classList.remove('size');
     web.classList.remove("size");
@@ -394,12 +363,7 @@ function ginger() {
 }
 
 function chilli() {
-   /* let web = document.querySelector("#web");
-    let pop = document.querySelector(".pop");
-    let title = document.querySelector(".title");
-    let img = document.querySelector(".thumbnail");
-    let col2 = document.querySelector(".col2");*/
-
+   
     title.innerHTML ="CHILLI";
     img.src = "images/chilli.jpg";
     col2.classList.remove('size');
@@ -409,12 +373,6 @@ function chilli() {
 
 }
 function funcwrapup() {
-    /*let web = document.querySelector("#web");
-    let pop = document.querySelector(".pop");
-    let title = document.querySelector(".title");
-    let img = document.querySelector(".thumbnail");
-    let col2= document.querySelector(".col2");*/
-
     col2.style.width = "fit-content";
     col2.style.height = "fit-content";
    
@@ -427,12 +385,6 @@ function funcwrapup() {
 }
 
 function cinnaorigin() {
-    /*let web = document.querySelector("#web");
-    let pop = document.querySelector(".pop");
-    let title = document.querySelector(".title");
-    let img = document.querySelector(".thumbnail");
-    let col2 = document.querySelector(".col2");*/
-
     img.src="images/cinnamon.jpg";
     title.innerHTML = "Story of Cinnamon?";
     col2.style.width = "100%";
@@ -442,12 +394,7 @@ function cinnaorigin() {
 }
 
  function thanks() {
-   /* pop.classList.remove("hide");
-    col.classList.add("size");
-    web.classList.add("size");*/
+    web.classList.add("size");
     vid.src="images/videoposter.png";
     vid.innerHTML = "Thank You for Watching";
-    /*img.src="images/samplespices.jpg";
-    title.innerHTML ="Eat Healthy and Stay Healthy";
-    title.style.color = "black";*/
 }
