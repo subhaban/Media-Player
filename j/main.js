@@ -190,10 +190,10 @@ volumeslider.addEventListener('click', (e) => {
      selection.addEventListener("change", (e) => {
                 selectVideo(e,vid);
                 selectTrack(e, vid, id); 
-                setTimeout(() => {
-                    document.querySelector(".selection").style.display="none";},3000);
+                
      });
-        
+     setTimeout(() => {
+        document.querySelector(".selection").style.display="none";},3000);
     }); 
 
 //for show transcript TT button
