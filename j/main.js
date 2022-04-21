@@ -298,7 +298,6 @@ function turmeric() {
     title.innerHTML = "TURMERIC";
     col2.classList.add("size");
     web.classList.add("size");
-   
     web.src = "images/turmeric_benefits_resize.png";
     pop.classList.remove("hide");
 }
