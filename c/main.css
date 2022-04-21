@@ -1,298 +1,349 @@
-
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: sans-serif;
-  /*background-image: linear-gradient( rgb(230, 142, 98),rgb(46, 188, 171));*/
-  background-image:url(../images/backwall.jpeg);
+
+  background-image: url(../images/backwall.jpeg);
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
 }
 
 h1 {
- 
-	text-align:center;
+
+  text-align: center;
+  color: rgb(8, 104, 121);
+
 }
- 
+
 #container {
 
-  display:grid;
-  grid-gap:2rem;
-  grid-template-columns:1fr 2fr;
-  position:relative;
-  margin:auto;
-  max-width:1024px;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr 2fr;
+  position: relative;
+  margin: auto;
+  max-width: 1024px;
 }
 
+/* Video decription---   */
 #vid {
-	width:480px;
-	height:300px; 
-  margin:10px;
-  margin-top:20px;
-  
+  width: 480px;
+  height: 300px;
+  margin: 10px;
+  margin-top: 20px;
+
 }
 
-.col1 { 
+/* Section 1 contain g video ,controls  and transcript   */
+.col1 {
   background-color: black;
-  border:8px solid rgb(108, 106, 106);
-  
-  height:fit-content;
+  border: 8px solid rgb(108, 106, 106);
+  height: fit-content;
   box-shadow: 6px 4px 5px rgb(17, 17, 16);
 
-  
+
 }
 
-
- .controls{
-  position:absolute;
-  width:480px;      
-  margin-left:10px; 
-  margin-top:-35px;
-  background: rgba(12, 12, 12,.8);
-  border:1px solid red;
+/* Styling the contorls*/
+.controls {
+  position: absolute;
+  width: 480px;
+  margin-left: 10px;
+  margin-top: -35px;
+  background: rgba(12, 12, 12, .8);
+  border: 1px solid red;
   border-radius: 10px;
-  height:32px;
+  height: 32px;
 }
 
 .controls_btn {
-  position:absolute;
-  width:90%;
-  top:-5px;
-  display:flex;
-  flex-direction:row;
-  justify-content:space-evenly;
+  position: absolute;
+  width: 90%;
+  top: -5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
-  height:24px; 
-  z-index:1;
-  margin:65px; 
-  margin-left:20px;
-  
-}
-.volumebtn{ 
-  margin-right:30px;
+  height: 24px;
+  z-index: 1;
+  margin: 65px;
+  margin-left: 20px;
+
 }
 
-#volumeslider{
-  position:absolute;
-  top:-3.3rem;
-  left:260px;
-  width:50px;
-  margin-right:10px;
-  visibility:hidden;
+.volumebtn {
+  margin-right: 30px;
 }
 
+#volumeslider {
+  position: absolute;
+  top: -3.3rem;
+  left: 210px;
+  width: 50px;
+  margin-right: 10px;
+  visibility: hidden;
+}
+
+/* Positioning the  button   */
 .btn {
-  cursor: pointer; 
-  background:transparent;
-  border:none;
-  margin-top:-6rem;
-  margin-left:20px;
-  margin-right:5px;
-  
- 
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  margin-top: -6rem;
+  margin-left: 20px;
+  margin-right: 5px;
+
+
 }
 
+/* Styling images used as button   */
 .btn img {
   position: relative;
-  width:20px;	 
-  height:24px;
-  margin-top:-2.5rem;
-  margin-left:-20px; 
-	opacity:1;
-  padding:0;
+  width: 20px;
+  height: 24px;
+  margin-top: -2.5rem;
+  margin-left: -20px;
+  opacity: 1;
+  padding: 0;
 }
 
-/* div containing select options for video selection  */
-.selection{
-  display:none;
-  width: 180px;
-  margin-left:300px; 
-  margin-top:-80px;
-  background: rgb(146, 170, 178);
-  color:rgb(38, 38, 233);
- 
-  height:75px;
-  
- 
+/* Styling div containing select options for video selection  */
+.selection {
+  display: none;
+  width: 150px;
+  margin-left: 320px;
+  margin-top: -80px;
+  height: 75px;
+
+
 }
-/* div containing subtiles selection foption  */
-.subtitles{
-  position:absolute; 
-  margin-left:300px;
-  margin-top:-75px;
-  color:rgb(189, 218, 234);
-  
-  border:3px solid rgb(2, 78, 2);
+
+/* Styling div containing subtiles selection foption  */
+.subtitles {
+  position: absolute;
+  margin-left: 250px;
+  margin-top: -75px;
+  color: rgb(189, 218, 234);
+
+  border: 3px solid rgb(2, 78, 2);
   background-color: rgb(37, 85, 130);
-  border:3px solid rgb(99, 102, 104);
-  display:none;
+  border: 3px solid rgb(99, 102, 104);
+  display: none;
 
 }
 
+
+
+.pop {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  width: 470px;
+  height: 35px;
+  background: rgba(238, 205, 157, .8);
+  color: #f2f3f5;
+  border: 2px solid rgb(16, 16, 16);
+  border-radius: 10px;
+  padding: 1px;
+  font-weight: bold;
+  z-index: 3;
+  opacity: 1;
+  transition: all .1s;
+
+}
+
+
+
+#ccbtn {
+  font-size: large;
+  font-family: monospace;
+  color: #f2f3f5;
+  margin: -55px 10px;
+}
+
+/*----Styling for source change button-----*/
+#chbtn {
+  font-size: large;
+  font-family: monospace;
+  color: #f2f3f5;
+  margin: -55px 25px;
+
+}
+
+/*----Styling for Show Transcript button-----*/
+#ttbtn {
+  font-size: large;
+  font-family: monospace;
+  color: #f2f3f5;
+  margin-right: 5px;
+  ;
+  margin-top: -2px;
+}
 
 /* trascript container span*/
-.trans_container{
-  position:absolute;
-  top:-53px;
-  right:-20px;;
-  background-color:#000000;
-  border:1px solid rgb(0, 0, 0);
-  color:rgb(189, 218, 234);
-  width:30px;
-  text-align:center;
-  cursor:pointer;
+.trans_container {
+  position: absolute;
+  top: -53px;
+  right: -20px;
+  ;
+  background-color: #000000;
+  border: 1px solid rgb(0, 0, 0);
+  color: rgb(189, 218, 234);
+  width: 30px;
+  text-align: center;
+  cursor: pointer;
 }
+
 /* anchors for transcript */
-a{
-  color:rgb(189, 218, 234);
+a {
+  cursor: pointer;
+  color: rgb(189, 218, 234);
   text-decoration: none;
+
+  padding: 10px;
 }
 
-.pop { 
-	position:absolute;
-	top:10px;
-	left:25px;
-  width:470px;
-  height:35px;
-	background:rgba(238, 205, 157,.8);
-  color:#f2f3f5;
-	border:2px solid rgb(16, 16, 16);
-  border-radius: 10px;
-	padding:1px;
-	font-weight:bold;
-	z-index:3;
-  opacity:1;
-  transition: all .1s;
-  
+a:active {
+  color: black;
+
 }
 
-#video-select{
-  background-color: rgb(37, 85, 130);
-  border:3px solid rgb(99, 102, 104);
-  position:relative;
-  width: 50px;
-  height:100px;
-  margin-top:0;
-  margin-left:500px;
-  
-  
-}
-/*.closed_caption{
-  position:absolute;
-  margin-left:50px;
-
-}*/
-#ttcaption{
-font-size: large;
-font-family:monospace;
-border:2px solid rgb(63, 69, 71);
-border-radius: 5px;
-margin-top:-2px;
+a:focus {
+  color: rgb(31, 150, 152);
 }
 
-.show-transcript{ 
-  background-color: rgb(37, 85, 130);
-  border:3px solid rgb(99, 102, 104);
-  margin-top:-150px;
-  width:120px;;
-  margin-left:365px;
-  display:none;
-}
-
-.show{
-  display:none;
- 
-  
-}
 
 .hide {
-  opacity:0;
+  opacity: 0;
   transition: all;
 }
 
- .thumbnail{  
-   top:10px;
-   left:25px;
-   width:50px;
-   height:30px;
- }
- .title{ 
-  text-align:center;
-  margin:-30px;
+.thumbnail {
+  top: 10px;
+  left: 25px;
+  width: 50px;
+  height: 30px;
+}
+
+.title {
+  text-align: center;
+  margin: -30px;
 }
 
 
 .col2 {
- 
+
   background-color: rgb(8, 9, 9);
-	height:80vh;
-  border:7px solid rgb(97, 97, 95);
+  height: 80vh;
+  border: 7px solid rgb(97, 97, 95);
 }
 
-.size{
-  height:52vh;
-  width:32vw;
+
+.size {
+  margin: auto;
+  height: 30vh;
+  width: auto;
 }
 
 iframe {
-	width:100%;
-	height:75vh;
-  border:none;
+  width: 100%;
+  height: 75vh;
+  border: none;
 }
 
+/* Styling the Caption */
 #caption {
   position: absolute;
   width: 355px;
   left: 0;
-  margin-top:-3.5em;
-  min-height:3em;
+  margin-top: -3.5em;
+  min-height: 3em;
   text-align: center;
   font-family: sans-serif;
   font-weight: bold;
   color: white;
   text-shadow: black 1px 1px 3px;
   padding-bottom: .5em;
-  background-color:hsla(250,10%,50%,0.8)
+  background-color: hsla(250, 10%, 50%, 0.8)
+}
+
+/* Styling the Transcript div*/
+/*----Styling for Transcript Selection div -----*/
+.show-transcript {
+  text-align: center;
+  padding-bottom: 5px;
+  background-color: rgb(65, 104, 141);
+  border: 7px solid rgb(99, 102, 104);
+  color: #8cabe7;
+  width: 520px;
+  height: 150px;
+  margin: 1rem;
+  overflow: auto;
+  display: none;
+}
+
+/*----Styling for Transcript showing div -----*/
+#transcript {
+  width: 80%;
+  /* border:2px solid black;*/
+  color: #f2f3f5;
+  margin: 1rem;
+
+}
+
+/*----Styling for Close button on transcript div -----*/
+#closebtn {
+  cursor: pointer;
+  color: #f2f3f5;
+  position: relative;
+  top: -45px;
+  right: 140px;
+}
+
+/*----Trnascript  heading -----*/
+h3 {
+  font-weight: 900;
+  font-size: larger;
+  color: rgb(55, 155, 195);
 }
 
 
 #transcript span {
-  display:table-row;
+  display: table-column;
 }
 
 
 /* show the timings in square brackets before each "subtitle" in the transcript. */
 #transcript [data-begin]:before {
-  content: " [" attr(data-begin) "s-" attr(data-end) "s]"; 
-  font-size:80%; 
-  display:table-cell; 
-  padding-right:1em;
+  content: " ["attr(data-begin) "s-"attr(data-end) "s]";
+  font-size: 80%;
+  display: table-cell;
+  padding-right: 3em;
 }
-
 
 
 @media screen and (max-width:600px) {
   #container {
-    display:grid;
-    grid-template-columns:1fr;
-    grid-gap:1rem;
-    
-   
-  }
- 
-  .col2 {
-    grid-row:2;
-    height:50vh;
-   
-  }
- 
-  iframe {
-    width:100%;
-    height:50vh;
-    border:none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+
+
   }
 
-  
+  .col2 {
+    grid-row: 2;
+    height: 50vh;
+
+  }
+
+  iframe {
+    width: 100%;
+    height: 50vh;
+    border: none;
+  }
+
+
 }
